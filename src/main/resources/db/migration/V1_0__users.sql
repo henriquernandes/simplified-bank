@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS users (
+    id SERIAL PRIMARY KEY,
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(70) NOT NULL,
+    cpf_cnpj VARCHAR(14) UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    balance DECIMAL(19, 2) NOT NULL DEFAULT 0.0,
+    created_at TIMESTAMP,
+    type VARCHAR(10) CHECK (type IN ('CONSUMER', 'SHOPKEEPER'))
+);
